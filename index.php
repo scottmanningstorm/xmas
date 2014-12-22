@@ -9,22 +9,28 @@
 	<body>
 	<h1> Crafty</h1>
 	<script>
-
+	var screenWidth = 1200; 
+	var screenHeight = 500; 
 	var active_items = 0;
+	var score = 0; 
 
+			
 	function spawn_item() 
  	{
- 		var ss = Crafty.randRange(1, 1); 
+ 		var spawnRange = Crafty.randRange(1, screenWidth - 200); 
 		item = Crafty.e("2D, Canvas, item, Collision, gravity")
-				.attr({x: ss , y: 0, z: 0})
+				.attr({x: spawnRange , y: 0, z: 0})
 				.gravity("platform")
 				.collision()
 				.onHit("item", function() {
 					this.destroy();
 				})
 				.onHit("player", function() {
-					this.destroy();
+					score++;
 					active_items--;
+				
+						
+					this.destroy();
 			});
 
 
@@ -34,7 +40,9 @@
 
 window.onload = function() {
 	//start crafty
-	Crafty.init(50, screen.width, screen.height);
+
+	
+	Crafty.init(screenWidth, screenHeight);
 	Crafty.canvas();
 	
 	
@@ -83,12 +91,14 @@ window.onload = function() {
 
 	Crafty.scene("main", function() {
 		
-
+	Crafty.e("2D, DOM, Text").attr({w: 100, h: 20, x: 0, y: 0})
+			.text("Score " + score)
+			.css({"text-align": "left", "color":"black"});
 	
 		Crafty.background('url(background.png) no-repeat left top');
 		 
 		floor = Crafty.e("2D, Canvas, platform, Collision")
-						.attr({x: 0, y: 665, z: 0})
+						.attr({x: 0, y: screenHeight, z: 0})
 		
 
 		Crafty.c('Timer', {
@@ -117,9 +127,9 @@ window.onload = function() {
 					//move the player in a direction depending on the booleans
 					//only move the player in one direction at a time (up/down/left/right)
 					if(this.isDown("RIGHT_ARROW")) this.x += this._speed; 
-					else if(this.isDown("LEFT_ARROW")) this.x -= this._speed; 
-					else if(this.isDown("UP_ARROW")) this.y -= this._speed;
-					else if(this.isDown("DOWN_ARROW")) this.y += this._speed;
+					if(this.isDown("LEFT_ARROW")) this.x -= this._speed; 
+					if(this.isDown("SPACE")) this.y -= this._speed;
+					//else if(this.isDown("DOWN_ARROW")) this.y += this._speed;
 				});
 			 
 				return this;
