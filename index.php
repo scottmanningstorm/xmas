@@ -7,7 +7,7 @@
 	<script type="text/javascript" src="http://craftyjs.com/release/0.4.2/crafty-min.js"></script>
 </head>
 	<body>
-	<h1> Crafty.js</h1>
+	<h1> Crafty</h1>
 	<script>
 
 	var active_items = 0;
