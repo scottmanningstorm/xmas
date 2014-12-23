@@ -41,7 +41,7 @@ window.onload = function() {
 		leftWall : [0,0]
 	});
 
-	Crafty.sprite(100, "rightWall.png", {
+	Crafty.sprite(100, "images/rightWall.png", {
 		rightWall : [0,0]
 	});
 
@@ -117,7 +117,6 @@ window.onload = function() {
 			.animate("Jump", 0, 3, 3)
 			.gravity("platform")
 			.bind("enterframe", function(e) {
- 				this.rotation = this.rotation + 1;
 				if(this.isDown("LEFT_ARROW")) {	
 					if(!this.isPlaying("walk_left"))
 						this.stop().animate("walk_left", 10);

@@ -11,9 +11,8 @@ Autoloader::Autoload();
 
 Application::env('local');
 
-/*
-include('../app/routes.php');
-
+include('app/routes.php');
+ 
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
 
@@ -23,7 +22,8 @@ Route::get('/xmas/games', 'gameController@play');
 
 
 Route::matchRoute(); 
-*/
+
+
 ?> 
 
 <html> 

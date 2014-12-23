@@ -1,17 +1,14 @@
 <?php 
 
-class ControllerFactory 
+class ErrorController extends BaseController 
 {
-	public static function build($className, $method, $params = null)  
+	public function index() 
 	{	
+		// Weird glitch where root has a space prepended to it. Seems to be intermittent...
+		$this->addVar('root', Paths::Root()); 
 
-		if (class_exists($className)) { 
-			return call_user_func_array(array(new $className, $method), $params); 
-		} else {
-			call_user_func_array(array(new ErrorController, 'index'),  $params); 
-			throw new Exception("no class found with the name " . $className);
-		}
+		$this->renderView('Error/Error');
 	}
 }
 
-?> 
+?>
