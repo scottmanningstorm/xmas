@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<books>
+	<book>
+		<name>Tove</name>
+		<author>Jani</author>
+		<date>Reminder</date>
+		<synopsis> synopsis of this book</synopsis>
+ 	</book>
+	<book>
+		<name>BOOK NAme</name>
+		<author>Author</author>
+		<date>Date Published</date>
+		<synopsis>Synopsis of this book</synopsis>
+	</book> 
+	<book>
+		<name>BOOK 2 NAme</name>
+		<author>Author 2</author>
+		<date>Date Published 2</date>
+		<synopsis>Synopsis of this book 2</synopsis>
+	</book> 
+</books>
